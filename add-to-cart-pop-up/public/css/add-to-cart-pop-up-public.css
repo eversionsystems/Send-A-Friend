@@ -1,0 +1,56 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ .modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 560px !important;
+	}
+}
+
+.woocommerce select {
+	padding: 0px 0px 0px 10px !important;
+}
+
+.woocommerce td.product-name dl.variation dt, .woocommerce-page td.product-name dl.variation dt {
+    margin: 4px 8px 0 0 !important
+}
+
+.woocommerce td.product-name dl.variation, .woocommerce-page td.product-name dl.variation {
+    padding-left: 20px !important;
+}
+
+dt {
+    font-size: 100% !important;
+}
+
+.variation-name em {
+    font-size: 90% !important;
+}
+
+.woocommerce td.product-name dl.variation dd, .woocommerce-page td.product-name dl.variation dd {
+    padding: 0 0 0em !important;
+}
+
+.woocommerce-page td.product-name dl.variation dd {
+	margin-bottom: 0.2em !important;
+}
