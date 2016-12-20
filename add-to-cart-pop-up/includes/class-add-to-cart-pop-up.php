@@ -211,7 +211,9 @@ class Add_To_Cart_Pop_Up {
 		
 		// send passkit coupon after new order created, woocommerce_new_order missing get_items() returns empty 
 		// http://stackoverflow.com/questions/35563364/woocommerce-get-order-items-on-checkout
-		$this->loader->add_action( 'woocommerce_checkout_order_processed', $plugin_public, 'atc_create_passkit_coupon' );
+		//$this->loader->add_action( 'woocommerce_checkout_order_processed', $plugin_public, 'atc_create_passkit_coupon' );
+		// use the instead for after payment completed
+		$this->loader->add_action( 'woocommerce_payment_complete', $plugin_public, 'atc_create_passkit_coupon' );
 		
 		// add recipient data to the order
 		$this->loader->add_action( 'woocommerce_add_order_item_meta', $plugin_public, 'atc_add_values_to_order_item_meta', 1, 3 );

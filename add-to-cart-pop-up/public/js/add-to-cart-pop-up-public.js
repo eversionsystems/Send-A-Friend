@@ -70,6 +70,10 @@
 			var productId = $( this ).data( 'product-id' );
 			$('.btn-add-cart-meta').attr( 'data-product-id', productId );
 			//testModalInput();
+			
+			// hide AJAX spinner on product
+			$('.product-loading-icon').hide();
+			$('.mk-svg-icon').hide();
 			$('#myModal').modal('show');
 		});
 		
@@ -220,6 +224,103 @@
 				$('.added-cart').hide();
 			}
 		});
+		
+		/*
+		$('#recipient_phone_number').focusout(function() {
+			if( $('#recipient_phone_number').val() != '' ) {
+				$("#recipient_email").prop('required', false);
+				//$("#recipient_email").prop('disabled', true);
+			}
+			else {
+				if( $('#recipient_email').val() != '' ) { 
+					$("#recipient_phone_number").prop('required', false);
+					//$("#recipient_phone_number").prop('disabled', true);
+				}
+				else {
+					$("#recipient_email").prop('required', false);
+					//$("#recipient_email").prop('disabled', false);
+				}
+			}
+			
+			if( $('#recipient_phone_number').val() == '' && $('#recipient_email').val() == '' ) {
+				$("#recipient_email").prop('required', true);
+				$("#recipient_phone_number").prop('required', true);
+			}
+			
+			//$('#send_friend').validator('validate');
+		});
+		
+		$('#recipient_email').focusout(function() {
+			if( $('#recipient_email').val() != '' ) {
+				$("#recipient_phone_number").prop('required', false);
+				//$("#recipient_phone_number").prop('disabled', true);
+			}
+			else {
+				if( $('#recipient_phone_number').val() != '' ) { 
+					$("#recipient_email").prop('required', false);
+					//$("#recipient_email").prop('disabled', true);
+				}
+				else {
+					$("#recipient_phone_number").prop('required', false);
+					//$("#recipient_phone_number").prop('disabled', false);
+				}
+			}
+			
+			if( $('#recipient_phone_number').val() == '' && $('#recipient_email').val() == '' ) {
+				$("#recipient_email").prop('required', true);
+				$("#recipient_phone_number").prop('required', true);
+			}
+			
+			//$('#send_friend').validator('validate');
+		});
+
+		$( "#recipient_message" ).keypress(function() {
+			if( $('#recipient_email').val() != '' ) {
+				$("#recipient_phone_number").prop('required', false);
+			}
+			if( $('#recipient_phone_number').val() != '' ) {
+				$("#recipient_email").prop('required', false);
+			}
+		});
+		*/
+		
+		$("input[name=devlivery_options]:radio").change(function () {
+			var devliveryMethod = $('input[name=devlivery_options]:checked').val();
+			if( devliveryMethod == 'phone' ) {
+				$("#recipient_email").prop('required', false);
+				$("#recipient_phone_number").prop('required', true);
+				$(".email-field").hide('slow');
+				$(".phone-number-field").show('slow');
+				$("#recipient_email").val('');
+			}
+			else if( devliveryMethod == 'email' ) {
+				$("#recipient_email").prop('required', true);
+				$("#recipient_phone_number").prop('required', false);
+				$(".phone-number-field").hide('slow');
+				$(".email-field").show('slow');
+				$("#recipient_phone_number").val('');
+			}
+			else {
+				$("#recipient_email").prop('required', true);
+				$("#recipient_phone_number").prop('required', true);
+				$(".phone-number-field").show('slow');
+				$(".email-field").show('slow');
+			}
+		});
+		
+		/*
+		$('#recipient_message').focusout(function() {
+			if( $('#recipient_phone_number').val() == '' ) {
+				if ( $('#recipient_email').val() != '' ) {
+					$('#recipient_phone_number').prop('required', false);
+				}
+			}
+			if( $('#recipient_email').val() == '' ) {
+				if ( $('#recipient_phone_number').val() != '' ) {
+					$('#recipient_email').prop('required', false);
+				}
+			}
+		});*/
 		
 		function testModalInput() {
 			$( '#recipient_name').val('Test User');
